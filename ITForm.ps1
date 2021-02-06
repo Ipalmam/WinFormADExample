@@ -1,15 +1,4 @@
 import-module activedirectory
-function checkpath {##testing if file and folder exist to sve report in case needed, this function create it in case it does not
-    param ()
-    $folder = Test-Path C:\ITFormProcess
-    if ($folder -eq $true) {
-        Clear-content "C:\ITFormProcess\Report.txt" -Force
-    }
-    else {
-        New-Item -ItemType Directory -Force -Path C:\ITFormProcess
-        New-Item -Path C:\ITFormProcess -Name "Report.txt" -ItemType "file"
-    }
-}
 function GetUserData {              ##This function validate data entry, if format is correct search for ADUser account information 
     param (                          
         $UserInput
@@ -120,7 +109,6 @@ function GetUserData {              ##This function validate data entry, if form
     $tBSummaryNE.Text = "UA – New User – ", $ChanArray[0], $LastNAme                                                      ##formating data and saving it in a textbox
     Set-Clipboard -Value $ReportdData                                                                                     ##Sagind data in clipboard
 }
-checkpath
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")  ##Loading Asamblies
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") 
 [void] [System.Windows.Forms.Application]::EnableVisualStyles()

@@ -104,11 +104,9 @@ function GetUserData {              ##This function validate data entry, if form
         }
         
     }
-    $startDate = get-date -format "dd/MM/yyy"
-    $AccessStartDate =  "Access Start Date: " + $startDate
-    $ReportdData = $ReportdData + $AccessStartDate + "Access End Date: N/A" + "Requested Access: " + "Request Details: " + "-----------------------------------------"##formating data and saving it in an array
-    $tBSummaryEU.Text = "UA – Existing User – ", $ChanArray[0], $LastNAme                                                 ##formating data and saving it in a textbox
-    $tBSummaryNE.Text = "UA – New User – ", $ChanArray[0], $LastNAme                                                      ##formating data and saving it in a textbox
+    $ReportdData = $ReportdData + "Requested Access: " + "Request Details: " + "-----------------------------------------"##formating data and saving it in an array
+    $tBSummaryEU.Text = 'UA - Existing User - ', $ChanArray[0], $LastNAme                                                 ##formating data and saving it in a textbox
+    $tBSummaryNE.Text = 'UA - New User - ', $ChanArray[0], $LastNAme                                                      ##formating data and saving it in a textbox
     Set-Clipboard -Value $ReportdData                                                                                     ##Sagind data in clipboard
 }
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")  ##Loading Asamblies
